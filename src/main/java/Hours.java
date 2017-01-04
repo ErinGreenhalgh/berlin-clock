@@ -31,29 +31,16 @@ public class Hours {
     void fillRowsFromNumber(){
         int num = getNumber();
         if (num % 5 == 0) {
-            fillTopRow(num);
+            fillRow(num, getTopRow(), 5);
         }
         if (num <=4 ){
-            fillBottomRow(num);
+            fillRow(num, getBottomRow(), 1);
         }
 
     }
 
-    String[] fillTopRow(int hours){
-        int hoursPerLight = 5;
-        int numberOfLights = hours / hoursPerLight;
-        String red = Symbols.getRed();
-        String[] row = getTopRow();
-        for (int i = 0; i < numberOfLights; i ++){
-            row[i] = red;
-        }
-        return row;
-    }
-
-    String[] fillBottomRow(int hours) {
-        String[] row = getBottomRow();
-        int hoursPerLight = 1;
-        int numberOfLights = row.length;
+    String[] fillRow(int number, String[] row, int hoursPerLight){
+        int numberOfLights = number / hoursPerLight;
         String red = Symbols.getRed();
         for (int i = 0; i < numberOfLights; i++){
             row[i] = red;
