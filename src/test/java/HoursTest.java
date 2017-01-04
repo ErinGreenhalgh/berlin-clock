@@ -38,6 +38,7 @@ public class HoursTest {
     public void canTurnOnTopRow(){
         Hours h = new Hours(10);
         h.setTopRow();
+        h.fillRowsFromNumber();
 
         String[] expected = new String[4];
         expected[0] = "R";
@@ -46,5 +47,20 @@ public class HoursTest {
         expected[3] = "O";
 
         assertArrayEquals(h.getTopRow(), expected);
+     }
+
+    @Test
+    public void canTurnOnBottomRow(){
+        Hours h = new Hours(4);
+        h.setBottomRow();
+        h.fillRowsFromNumber();
+
+        String[] expected = new String[4];
+         expected[0] = "R";
+         expected[1] = "R";
+         expected[2] = "R";
+         expected[3] = "R";
+
+         assertArrayEquals(h.getBottomRow(), expected);
      }
 }
