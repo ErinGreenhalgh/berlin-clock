@@ -27,7 +27,39 @@ public class Hours {
         bottomRow[2] = off;
         bottomRow[3] = off;
     }
-    
+
+    void fillRowsFromNumber(){
+        int num = getNumber();
+        if (num % 5 == 0) {
+            fillTopRow(num);
+        }
+        if (num <=4 ){
+            fillBottomRow(num);
+        }
+
+    }
+
+    String[] fillTopRow(int hours){
+        int hoursPerLight = 5;
+        int numberOfLights = hours / hoursPerLight;
+        String red = Symbols.getRed();
+        String[] row = getTopRow();
+        for (int i = 0; i < numberOfLights; i ++){
+            row[i] = red;
+        }
+        return row;
+    }
+
+    String[] fillBottomRow(int hours) {
+        String[] row = getBottomRow();
+        int hoursPerLight = 1;
+        int numberOfLights = row.length;
+        String red = Symbols.getRed();
+        for (int i = 0; i < numberOfLights; i++){
+            row[i] = red;
+        }
+        return row;
+    }
 
     String[] getTopRow(){
         return topRow;
