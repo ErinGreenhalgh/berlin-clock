@@ -28,13 +28,16 @@ public class Hours {
         bottomRow[3] = off;
     }
 
-    void fillRowsFromNumber(){
-        int num = getNumber();
+    void fillRowsFromNumber(int num){
         if (num % 5 == 0) {
             fillRow(num, getTopRow(), 5);
-        }
-        if (num <=4 ){
+        } else if (num <= 4 ) {
             fillRow(num, getBottomRow(), 1);
+        } else if (num % 5 != 0) {
+            int remainder = num % 5;
+            int newNumber = num - remainder;
+            fillRowsFromNumber(remainder);
+            fillRowsFromNumber(newNumber);
         }
 
     }
