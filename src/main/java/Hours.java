@@ -1,16 +1,6 @@
-
 public class Hours {
-    int number;
     String[] topRow = new String[4];
     String[] bottomRow = new String[4];
-
-    public Hours(int numberOfHours){
-        number = numberOfHours;
-    }
-
-    int getNumber(){
-        return number;
-    }
 
     void setTopRow(){
         String off = Symbols.getOff();
@@ -57,6 +47,16 @@ public class Hours {
 
     String[] getBottomRow(){
         return bottomRow;
+    }
+
+    String[][] display(int number){
+        String[][] representation = new String[2][4];
+        setTopRow();
+        setBottomRow();
+        fillRowsFromNumber(number);
+        representation[0] = getTopRow();
+        representation[1] = getBottomRow();
+        return representation;
     }
 
 
